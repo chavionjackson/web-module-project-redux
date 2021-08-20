@@ -5,7 +5,6 @@ import MovieFooter from './MovieFooter';
 import { connect } from 'react-redux';
 
 const MovieList = (props)=> {
-    console.log(props)
     const movies = props.movies;
 
     return (
@@ -33,10 +32,10 @@ const MovieList = (props)=> {
     );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         movies: state.movies
     }
 }
 
-export default connect(mapStateToProps, {})(MovieList);
+export default connect(mapStateToProps)(MovieList);
