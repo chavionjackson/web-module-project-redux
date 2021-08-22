@@ -10,8 +10,8 @@ const Movie = (props) => {
   const movies = props.movies;
   const movie = movies.find((movie) => movie.id === Number(id));
 
-  const removeMovie = () => {
-    props.deleteMovie(movie.id);
+  const removeMovie = (id) => {
+    props.deleteMovie(id);
     push("/movies");
   };
 
@@ -61,7 +61,7 @@ const Movie = (props) => {
                 <span onClick={() => addFav(movie)} className="m-2 btn btn-dark">Favorite</span>
                 <span className="delete">
                   <input
-                    onClick={removeMovie}
+                    onClick={() => removeMovie(movie.id)}
                     type="button"
                     className="m-2 btn btn-danger"
                     value="Delete"
