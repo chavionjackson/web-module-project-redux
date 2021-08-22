@@ -1,5 +1,5 @@
-import { TOGGLE_FAV } from "../actions/favActions";
-import movies from "../data";
+import { ADD_FAV, TOGGLE_FAV } from "../actions/favActions";
+// import movies from "../data";
 
 const initialState = {
   favorites: [],
@@ -12,6 +12,14 @@ const reducer = (state = initialState, action) => {
         return {
           ...state,
           displayFavorites: !state.displayFavorites
+        }
+      case ADD_FAV:
+        const newFav = {
+          ...action.payload,
+        }
+        return {
+          ...state,
+          favorites: [...state.favorites, newFav]
         }
         default:
             return state; 
